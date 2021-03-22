@@ -1,5 +1,6 @@
-// adding all my questions
+// ================================== QUESTIONS =============================
 
+// adding all my questions
 const questions = [
     {
         question: "Inside which HTML element do we put the JavaScript?",
@@ -39,7 +40,7 @@ const questions = [
     {
         question: "How do you call a function named myFunction?",
         choices: ["a. call myFunction()", "b. call function myFunction()", "c. myFunction()", "d. call myFunction"],
-        answer: "c. myFunctions()"
+        answer: "c. myFunction()"
     },
     {
         question: "How does a FOR loop start?",
@@ -106,6 +107,7 @@ function newQuiz() {
     questionSection.style.display = "block";
     timer.style.display = "block";
     timesUp.style.display = "none";
+    answerCheck.style.display = "none"
 
     var startTimer = setInterval(function() {
         totalTime--;
@@ -145,7 +147,7 @@ function textAnswer(answer) {
     if (questions[questionIndex].answer === questions[questionIndex].choices[answer]) {
         // user entered the correct answer so we add 1 to the final score
         correctAns++;
-        answerCheck.textContent = "Correct ✔"
+        answerCheck.textContent = "Correct ✅"
     } else {
         // wrong answer, minus 10 seconds from timer
         totalTime -= 10;
@@ -162,10 +164,13 @@ function textAnswer(answer) {
     }
 }
 
-function chooseA() { checkAnswer(0);}
-function chooseB() { checkAnswer(1);}
-function chooseC() { checkAnswer(2);}
-function chooseD() { checkAnswer(3);}
+function chooseA() { textAnswer(0);}
+
+function chooseB() { textAnswer(1);}
+
+function chooseC() { textAnswer(2);}
+
+function chooseD() { textAnswer(3);}
 
 // when the game is over display the section for game over
 function gameOver() {
@@ -173,7 +178,7 @@ function gameOver() {
     questionSection.style.display = "none";
     startSection.style.display = "none";
     timer.style.display = "none";
-    timesUp.style.display = "block"
+    timesUp.style.display = "block";
 
     finalScore.textContent = correctAns;
 }
@@ -183,7 +188,7 @@ function storeLeaderboard(event) {
     event.preventDefault();
 
     // input check to ensure users have entered their initials
-    if (initialInput === "") {
+    if (initialInput.value === "") {
         alert("Please enter your initials to be added to the leaderboard 💥")
         return;
     }
@@ -249,3 +254,29 @@ function showLeaderboard() {
 }
 
 // ============================= EVENT LISTENERS ================================
+
+startQuizBtn.addEventListener("click", newQuiz);
+choiceA.addEventListener("click", chooseA);
+choiceB.addEventListener("click", chooseB);
+choiceC.addEventListener("click", chooseC);
+choiceD.addEventListener("click", chooseD);
+
+submitInitialBtn.addEventListener("click", function(event){
+    storeLeaderboard(event);
+});
+
+viewLeaderboard.addEventListener("click", function(event){
+    showLeaderboard(event);
+});
+
+goBackBtn.addEventListener("click", function() {
+    startSection.style.display = "block";
+    leaderboardSection.style.display = "none";
+    listOfScores.innerHTML = ""
+});
+
+clearLeaderBtn.addEventListener("click", function() {
+    window.localStorage.removeItem("leaderboard");
+    listOfScores.innerHTML = "Leaderboard Cleaned Out 🧹"
+    listOfScores.setAttribute("style", "font-family: 'Archivo', sans-serif; font-style: italic;")
+});
