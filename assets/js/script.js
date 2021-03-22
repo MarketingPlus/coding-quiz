@@ -53,8 +53,10 @@ const questions = [
     }
 ];
 
-// linking elements to my JS
 
+// ===================== VARIABLES ====================== //
+
+// linking elements to my JS
 var timer = document.getElementById("timer");
 var timeLeft = document.getElementById("timeLeft");
 var timesUp = document.getElementById("timesUp");
@@ -82,3 +84,40 @@ var goBackBtn = document.getElementById("goBackBtn");
 var clearLeaderBtn = document.getElementById("clearLeaderBtn"); 
 var viewLeaderboard = document.getElementById("viewLeaderboard");
 var listOfScores = document.getElementById("listOfScores");
+
+// defining variables
+var correctAns = 0;
+var questionNum = 0;
+var scoreResult;
+var questionIndex = 0;
+
+
+// ===================== FUNCTIONS ====================== //
+
+// function to start the timer as soon as the user clicks the start button
+var totalTime = 151;
+function newQuiz() {
+    questionIndex = 0;
+    totalTime = 150;
+    timeLeft.textContent = totalTime;
+    initialInput.textContent = "";
+
+    startSection.style.display = "none";
+    questionSection.style.display = "block";
+    timer.style.display = "block";
+    timesUp.style.display = "none";
+
+    var startTimer = setInterval(function() {
+        totalTime--;
+        timeLeft.textContent = totalTime;
+        if(totalTime <= 0) {
+            clearInterval(startTimer);
+            if (questionIndex < questions.length - 1) {
+                gameOver()
+            }
+        }
+    },1000);
+
+    showQuiz()
+};
+
