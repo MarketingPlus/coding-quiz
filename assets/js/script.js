@@ -51,3 +51,34 @@ const questions = [
         choices: ["a. rnd(7.25)", "b. round(7.25)", "c. Math.rnd(7.25)", "d. Math.round(7.25)"],
         answer: "d. Math.round(7.25)"
     }
+];
+
+// linking elements to my JS
+
+var timer = document.getElementById("timer");
+var timeLeft = document.getElementById("timeLeft");
+var timesUp = document.getElementById("timesUp");
+
+var startSection = document.getElementById("start");
+var startQuizBtn = document.getElementById("start-quiz-button");
+
+var questionSection = document.getElementById("questionSection");
+var questionTitle = document.getElementById("questionTitle");
+var choiceA = document.getElementById("btn0");
+var choiceB = document.getElementById("btn1");
+var choiceC = document.getElementById("btn2");
+var choiceD = document.getElementById("btn3");
+var answerCheck = document.getElementById("answerCheck");
+
+var finalScoreSection = document.getElementById("finalScoreSection");
+var submitInitialBtn = document.getElementById("submitInitialBtn");
+var initialInput = document.getElementById("initialInput");
+var everything = document.getElementById("everything");
+
+var leaderboardSection = document.getElementById("leaderboardSection");
+var finalScore = document.getElementById("finalScore");
+
+var goBackBtn = document.getElementById("goBackBtn");
+var clearLeaderBtn = document.getElementById("clearLeaderBtn"); 
+var viewLeaderboard = document.getElementById("viewLeaderboard");
+var listOfScores = document.getElementById("listOfScores");
