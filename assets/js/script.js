@@ -215,7 +215,8 @@ function storeLeaderboard(event) {
 
     var userScore = {
         initials: initialInput.value,
-        score: finalScore.textContent
+        time: finalScoreTime.textContent,
+        points: finalScorePoints.textContent
     };
 
     console.log(userScore);
@@ -252,7 +253,7 @@ function showLeaderboard() {
 
     for (; i < storedLeaderboard.length; i++) {
         var newLeaderboardPos = document.createElement("p");
-        newLeaderboardPos.innerHTML = storedLeaderboard[i].initials + ": " + storedLeaderboard[i].score;
+        newLeaderboardPos.innerHTML = storedLeaderboard[i].initials + ": ⏱ Time Left - " + storedLeaderboard[i].time + " 🌟 Points - " + storedLeaderboard[i].points; 
         listOfScores.appendChild(newLeaderboardPos);
     }
 }
@@ -277,6 +278,7 @@ goBackBtn.addEventListener("click", function() {
     startSection.style.display = "block";
     leaderboardSection.style.display = "none";
     listOfScores.innerHTML = ""
+    correctAns = 0;
 });
 
 clearLeaderBtn.addEventListener("click", function() {
