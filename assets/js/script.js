@@ -121,3 +121,35 @@ function newQuiz() {
     showQuiz()
 };
 
+// Show the question and start the quiz
+function showQuiz() {
+    nextQuestion()
+}
+
+// displays the question once the user submits an answer
+function nextQuestion() {
+    questionTitle.textContent = questions[questionIndex].question;
+    choiceA.textContent = questions[questionIndex].choices[0];
+    choiceB.textContent = questions[questionIndex].choices[1];
+    choiceC.textContent = questions[questionIndex].choices[2];
+    choiceD.textContent = questions[questionIndex].choices[3];
+}
+
+// once the question is answered, display if the user input was correct or wrong
+function textAnswer(answer) {
+
+    var lineBreak = document.getElementById("lineBreak");
+    lineBreak.style.display = "block";
+    answerCheck.style.display = "block";
+
+    if (questions[questionIndex].answer === questions[questionIndex].choices[answer]) {
+        // user entered the correct answer so we add 1 to the final score
+        correctAns++;
+        answerCheck.textContent = "Correct ✔"
+    } else {
+        // wrong answer, minus 10 seconds from timer
+        totalTime -= 10;
+        timeLeft.textContent = totalTime;
+        answerCheck.textContent = "Wrong ❌ The answer you were looking for was: " +questions[questionIndex].answer;
+    }
+}
