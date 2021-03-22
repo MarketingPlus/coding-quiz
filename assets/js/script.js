@@ -219,3 +219,33 @@ function storeLeaderboard(event) {
     //show the current leaderboard
     showLeaderboard();
 }
+
+// function to show the leaderboard
+
+var i = 0;
+function showLeaderboard() {
+    startSection.style.display = "none";
+    timer.style.display = "none";
+    questionSection.style.display = "none";
+    timesUp.style.display = "none";
+    finalScoreSection.style.display = "none";
+    leaderboardSection.style.display = "block";
+
+    var savedLeaderboard = localStorage.getItem("Leaderboard");
+
+    // checks if there is anything in the local storage
+    if (savedLeaderboard === null) {
+        return;
+    }
+    console.log(savedLeaderboard);
+
+    var storedLeaderboard = JSON.parse(savedLeaderboard);
+
+    for (; i < storedLeaderboard.length; i++) {
+        var newLeaderboardPos = document.createElement("p");
+        newLeaderboardPos.innerHTML = storedLeaderboard[i].initials + ": " + storedLeaderboard[i].score;
+        listOfScores.appendChild(newLeaderboardPos);
+    }
+}
+
+// ============================= EVENT LISTENERS ================================
