@@ -21,7 +21,7 @@
             <!-- NAVBAR --> 
             <nav class="navbar">
                 <div class="col text-left">
-                    <a href="#" id="viewHighScore">View High Scores</a>
+                    <a href="#" id="viewHighScore">View Leaderboard</a>
                 </div>
 
                 <div id="timer" class="col text-right">
@@ -57,7 +57,7 @@
                     </section>
 
                     <!-- FINAL SCORE SECTION -->
-                    <section id="finalScoreSection" class="pl-5 pt-5 justifycontent-center font-weight-bold" style="display: block;">
+                    <section id="finalScoreSection" class="pl-5 pt-5 justifycontent-center font-weight-bold" style="display: none;">
                         <div class="col-2"></div>
                             <div class="col-8 text-left">
                                 <h2 class="font-weight-bold pt-2 pb-3 m-2">You scored: <span id="finalScore"></span>!</h2>
@@ -69,6 +69,17 @@
                             </div>
                     </section>
 
+                    <!-- LEADERBOARD SECTION -->
+                    <section id="leaderboardSection" class="pl-5 ml-4 pt-5 justify-content-center font-weight-bold" style="display: none;">
+                        <h2 class="font-weight-bold pt-2 pb-3 mb-2">Leaderboard</h2>
+
+                        <div id="listOfScores" class="list-group list-group-flush pt-2 pb-3 mb-2"></div>
+
+                        <p>
+                            <button type="submit" id="goBackBtn" class="btn btn-success mt-3 mr-3">Back</button>
+                            <button type="submit" class="btn btn-success mt-3" id="clearLeaderBtn">Clear Leaderboard</button>
+                        </p>
+                    </section>
 
                 </div>
         </div>
