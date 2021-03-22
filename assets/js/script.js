@@ -152,4 +152,28 @@ function textAnswer(answer) {
         timeLeft.textContent = totalTime;
         answerCheck.textContent = "Wrong ❌ The answer you were looking for was: " +questions[questionIndex].answer;
     }
+
+    questionIndex++;
+    // repeat until all question in the index have been displayed
+    if (questionIndex < questions.length) {
+        nextQuestion();
+    } else {
+        gameOver()
+    }
+}
+
+function chooseA() { checkAnswer(0);}
+function chooseB() { checkAnswer(1);}
+function chooseC() { checkAnswer(2);}
+function chooseD() { checkAnswer(3);}
+
+// when the game is over display the section for game over
+function gameOver() {
+    finalScoreSection.style.display = "block";
+    questionSection.style.display = "none";
+    startSection.style.display = "none";
+    timer.style.display = "none";
+    timesUp.style.display = "block"
+
+    finalScore.textContent = correctAns;
 }
