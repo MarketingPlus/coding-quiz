@@ -146,11 +146,12 @@ function textAnswer(answer) {
 
     if (questions[questionIndex].answer === questions[questionIndex].choices[answer]) {
         // user entered the correct answer so we add 1 to the final score
+        // Custom Scoring System
         correctAns++;
         answerCheck.textContent = "Correct ✅"
     } else {
-        // wrong answer, minus 10 seconds from timer
-        totalTime -= 10;
+        // wrong answer, minus 15 seconds from timer
+        totalTime -= 15;
         timeLeft.textContent = totalTime;
         answerCheck.textContent = "Wrong ❌ The answer you were looking for was: " +questions[questionIndex].answer;
     }
@@ -180,7 +181,10 @@ function gameOver() {
     timer.style.display = "none";
     timesUp.style.display = "block";
 
-    finalScore.textContent = correctAns;
+    
+    // two scoring systems with time and points
+    finalScorePoints.textContent = correctAns;
+    finalScoreTime.textContent = totalTime;
 }
 
 // enter the users initials and store the leaderboard in local storage
