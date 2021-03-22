@@ -177,3 +177,45 @@ function gameOver() {
 
     finalScore.textContent = correctAns;
 }
+
+// enter the users initials and store the leaderboard in local storage
+function storeLeaderboard(event) {
+    event.preventDefault();
+
+    // input check to ensure users have entered their initials
+    if (initialInput === "") {
+        alert("Please enter your initials to be added to the leaderboard 💥")
+        return;
+    }
+
+    startSection.style.display = "none";
+    timer.style.display = "none";
+    timesUp.style.display = "none";
+    finalScoreSection.style.display = "none";
+    leaderboardSection.style.display = "block";
+
+    // stores the leaderboard/scores into local storage
+    var savedLeaderboard = localStorage.getItem("Leaderboard");
+    var scoresArray;
+
+    if (savedLeaderboard === null) {
+        scoresArray = [];
+    } else {
+        scoresArray = JSON.parse(savedLeaderboard)
+    }
+
+    var userScore = {
+        initials: initialInput.value,
+        score: finalScore.textContent
+    };
+
+    console.log(userScore);
+    scoresArray.push(userScore);
+
+    // stringify array in order to store in local storage
+    var scoresArrayString = JSON.stringify(scoresArray);
+    window.localStorage.setItem("Leaderboard", scoresArrayString);
+
+    //show the current leaderboard
+    showLeaderboard();
+}
