@@ -38,7 +38,7 @@ What I have been doing to keep my repo clean and up to date:
 <section id="finalScoreSection" class="pl-5 pt-5 justifycontent-center font-weight-bold" style="display: none;">
     <div class="col-2"></div>
         <div class="col-8 text-left">
-            <h2 class="font-weight-bold pt-2 pb-3 m-2">You completed the quiz in <span id="finalScoreTime"></span> seconds! with a score of <span id="finalScorePoints"></span> out of 10 💫</h2>
+            <h2 class="font-weight-bold pt-2 pb-3 m-2">You completed the quiz in <span id="finalScoreTime"></span> seconds remaining! with a score of <span id="finalScorePoints"></span> out of 10 💫</h2>
             <form>
                 <p class="pt-2 pb-3 m-2">Enter your initials to be placed on the Leaderboard: <input id="initialInput" class="form-control pt-2 pb-3 mt-2" type="text">
                     <button type="submit" id="submitInitialBtn" class="btn btn-success mt-3">Submit</button>
