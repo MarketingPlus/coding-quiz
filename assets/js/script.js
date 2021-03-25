@@ -86,6 +86,8 @@ var clearLeaderBtn = document.getElementById("clearLeaderBtn");
 var viewLeaderboard = document.getElementById("viewLeaderboard");
 var listOfScores = document.getElementById("listOfScores");
 
+var bodyEl = document.getElementById("body");
+
 // defining variables
 var correctAns = 0;
 var questionNum = 0;
@@ -107,7 +109,8 @@ function newQuiz() {
     questionSection.style.display = "block";
     timer.style.display = "block";
     timesUp.style.display = "none";
-    answerCheck.style.display = "none"
+    answerCheck.style.display = "none";
+    lineBreak.style.display = "none";
 
     var startTimer = setInterval(function() {
         totalTime--;
@@ -149,11 +152,13 @@ function textAnswer(answer) {
         // Custom Scoring System
         correctAns++;
         answerCheck.textContent = "Correct ✅"
+        bodyEl.style.backgroundColor = "#14ed00"
     } else {
         // wrong answer, minus 15 seconds from timer
         totalTime -= 15;
         timeLeft.textContent = totalTime;
         answerCheck.textContent = "Wrong ❌ The answer you were looking for was: " +questions[questionIndex].answer;
+        bodyEl.style.backgroundColor = "#db2109"
     }
 
     questionIndex++;
@@ -165,6 +170,14 @@ function textAnswer(answer) {
     }
 }
 
+function fadeCorrect() {
+    bodyEl.style.backgroundColor = "#14ed00"
+}
+
+
+function faceWrong() {
+    bodyEl.style.backgroundColor = "#db2109"
+}
 function chooseA() { textAnswer(0);}
 
 function chooseB() { textAnswer(1);}
@@ -180,6 +193,7 @@ function gameOver() {
     startSection.style.display = "none";
     timer.style.display = "none";
     timesUp.style.display = "block";
+    bodyEl.style.backgroundColor = "#f2f2f2"
 
     
     // two scoring systems with time and points
@@ -195,7 +209,7 @@ function storeLeaderboard(event) {
     if (initialInput.value === "") {
         alert("Please enter your initials to be added to the leaderboard 💥")
         return;
-    }
+    } 
 
     startSection.style.display = "none";
     timer.style.display = "none";

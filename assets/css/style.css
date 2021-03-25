@@ -49,3 +49,28 @@ p {
   font-style: italic;
   color: #4d5159;
 }
+
+#questionSection,
+#finalScoreSection,
+#start,
+#leaderboardSection {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 3rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+#viewLeaderboard,
+#timer,
+#timesUp {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 0.75rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+#timer,
+#timesUp {
+  max-width: 8rem;
+  text-align: left;
+}
