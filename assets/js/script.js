@@ -296,7 +296,7 @@ goBackBtn.addEventListener("click", function() {
 });
 
 clearLeaderBtn.addEventListener("click", function() {
-    window.localStorage.removeItem("leaderboard");
+    window.localStorage.removeItem("Leaderboard");
     listOfScores.innerHTML = "Leaderboard Cleaned Out 🧹"
     listOfScores.setAttribute("style", "font-family: 'Archivo', sans-serif; font-style: italic;")
 });
