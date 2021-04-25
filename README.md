@@ -71,3 +71,9 @@ var startTimer = setInterval(function() {
 [REPOSITARY](https://github.com/MarketingPlus/coding-quiz)
 
 [WEBSITE](https://marketingplus.github.io/coding-quiz/)
+
+## License
+
+  Copyright (c) Benjamin Wilson. All rights reserved.
+  
+  Licensed under the [MIT](LICENSE) license.
